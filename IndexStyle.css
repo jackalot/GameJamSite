@@ -231,7 +231,27 @@ footer {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
-
+/* About Us Section Styles */
+.AboutUs {
+  margin-top: 1.25rem;
+}
+.AboutUs-box {
+  max-width: 920px; /* align with .info-box */
+  margin: 0.75rem auto 0;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid rgba(var(--accent-rgb), 0.06);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(11, 18, 32, 0.04);
+}
+.AboutUs-box h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  color: var(--accent-strong);
+  text-align: left;
+}
 /* Sponsors section: each sponsor shows as two columns (logo | details) */
 .sponsors {
   margin-top: 1.25rem;
