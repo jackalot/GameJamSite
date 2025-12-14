@@ -327,3 +327,84 @@ footer {
     text-align: center;
   }
 }
+
+/* FAQ styles */
+.faq {
+  margin-top: 1.25rem;
+}
+.faq-box {
+  max-width: 920px; /* align with other boxes */
+  margin: 0.75rem auto 0;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid rgba(13, 110, 253, 0.06);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(11, 18, 32, 0.04);
+}
+.faq-box h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  color: var(--text);
+  text-align: left;
+}
+.faq details {
+  padding: 0.5rem 0.5rem;
+  border-radius: 8px;
+  background: rgba(13, 110, 253, 0.02);
+  margin-bottom: 0.5rem;
+}
+.faq summary {
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.5rem;
+  outline: none;
+  position: relative;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary::after {
+  content: "▸";
+  position: absolute;
+  right: 0.6rem;
+  transform-origin: center;
+  transition: transform 0.15s ease;
+}
+.faq details[open] summary::after {
+  transform: rotate(90deg);
+}
+.faq p {
+  margin: 0.4rem 0 0.6rem;
+  color: #374151;
+  line-height: 1.45;
+}
+.faq summary:focus-visible {
+  outline: 3px solid rgba(13, 110, 253, 0.12);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* FAQ controls */
+.faq-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+.faq-btn {
+  background: transparent;
+  border: 1px solid rgba(13, 110, 253, 0.08);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+.faq-btn:hover:not(:disabled) {
+  background: rgba(13, 110, 253, 0.06);
+}
+.faq-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
