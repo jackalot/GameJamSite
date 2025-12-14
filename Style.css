@@ -193,3 +193,84 @@ footer {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
 }
+
+/* Sponsors section: each sponsor shows as two columns (logo | details) */
+.sponsors {
+  margin-top: 1.25rem;
+}
+.sponsors-box {
+  max-width: 920px; /* align with .info-box */
+  margin: 0.75rem auto 0;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid rgba(13, 110, 253, 0.06);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(11, 18, 32, 0.04);
+}
+.sponsors-box h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  color: var(--text);
+  text-align: left;
+}
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* default: single column on small screens */
+  gap: 0.75rem;
+}
+
+/* Explicit column layout at breakpoints: 2 columns on tablet, 4 on large screens */
+@media (min-width: 600px) {
+  .sponsors-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+@media (min-width: 900px) {
+  /* four columns once the layout is wide enough */
+  .sponsors-grid { grid-template-columns: repeat(4, 1fr); }
+  .sponsor-logo { flex: 0 0 120px; }
+  .sponsor-name { text-align: left; }
+}
+.sponsor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  background: rgba(13, 110, 253, 0.02);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.sponsor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(11, 18, 32, 0.06);
+}
+.sponsor-logo {
+  flex: 0 0 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sponsor-logo img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 72px;
+}
+.sponsor-name {
+  margin: 0;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: left;
+}
+
+@media (max-width: 520px) {
+  .sponsor {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sponsor-logo {
+    flex: 0 0 auto;
+  }
+  .sponsor-name {
+    text-align: center;
+  }
+}
