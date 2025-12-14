@@ -1,10 +1,18 @@
 :root {
-  --accent: #0d6efd;
-  --accent-strong: #0949b1;
-  --bg: linear-gradient(180deg, #f7fbff 0%, #f4f7fb 100%);
-  --page-bg: #f4f7fb;
+  /* Palette provided by user */
+  --accent-light: #add7f6; /* 173,215,246 */
+  --accent-mid: #87bfff; /* 135,191,255 */
+  --accent: #3f8efc; /* 63,142,252 */
+  --accent-strong: #2667ff; /* 38,103,255 */
+  --accent-green: #c2f970; /* 194,249,112 */
+  /* RGB helpers for rgba usage */
+  --accent-rgb: 38, 103, 255;
+  --accent-mid-rgb: 63, 142, 252;
+
+  --bg: linear-gradient(180deg, var(--accent-light) 0%, var(--accent-mid) 100%);
+  --page-bg: #f2fbff;
   --card-bg: #ffffff;
-  --muted: #6b7280;
+  --muted: #4b5563; /* slightly darker muted to match palette */
   --text: #0b1220;
   --radius: 12px;
 }
@@ -52,9 +60,11 @@ main {
   margin: 0.5rem auto 0; /* center the box horizontally */
   padding: 1rem 1.25rem;
   background: var(--card-bg);
-  border: 1px solid rgba(13, 110, 253, 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.08);
   border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(13, 110, 253, 0.06);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.06);
   text-align: center;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
@@ -64,7 +74,7 @@ main {
 .info-box:hover,
 .info-box:focus-within {
   transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(13, 110, 253, 0.12);
+  box-shadow: 0 18px 40px rgba(var(--accent-rgb), 0.12);
 }
 
 .info-desc p {
@@ -94,16 +104,16 @@ main {
 .btn.cta {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(13, 110, 253, 0.12);
+  box-shadow: 0 6px 18px rgba(var(--accent-rgb), 0.12);
   margin-top: 0.6rem;
 }
 .btn.cta:hover {
   transform: translateY(-3px);
   background: var(--accent-strong);
-  box-shadow: 0 12px 30px rgba(13, 110, 253, 0.18);
+  box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.18);
 }
 .btn:focus {
-  outline: 3px solid rgba(13, 110, 253, 0.18);
+  outline: 3px solid rgba(var(--accent-rgb), 0.18);
   outline-offset: 3px;
 }
 
@@ -172,7 +182,7 @@ nav {
   padding: 0.6rem 1rem;
   background: rgba(255, 255, 255, 0.92);
   border-radius: var(--radius);
-  border: 1px solid rgba(13, 110, 253, 0.06);
+  border: 1px solid rgba(var(--accent-rgb), 0.06);
   box-shadow: 0 8px 24px rgba(11, 18, 32, 0.04);
 }
 
@@ -186,14 +196,14 @@ nav a {
 
 nav a:hover,
 nav a:focus {
-  background: rgba(13, 110, 253, 0.06);
+  background: rgba(var(--accent-rgb), 0.06);
   text-decoration: none;
   transform: translateY(-1px);
   outline: none;
 }
 
 nav a:focus-visible {
-  outline: 3px solid rgba(13, 110, 253, 0.12);
+  outline: 3px solid rgba(var(--accent-rgb), 0.12);
   outline-offset: 3px;
 }
 
@@ -231,14 +241,16 @@ footer {
   margin: 0.75rem auto 0;
   padding: 1rem;
   background: var(--card-bg);
-  border: 1px solid rgba(13, 110, 253, 0.06);
+  border: 1px solid rgba(var(--accent-rgb), 0.06);
   border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
   box-shadow: 0 8px 24px rgba(11, 18, 32, 0.04);
 }
 .sponsors-box h2 {
   margin: 0 0 0.75rem;
   font-size: 1.125rem;
-  color: var(--text);
+  color: var(--accent-strong);
   text-align: left;
 }
 .sponsors-grid {
@@ -275,7 +287,7 @@ footer {
   gap: 1rem;
   padding: 0.6rem;
   border-radius: 8px;
-  background: rgba(13, 110, 253, 0.02);
+  background: rgba(var(--accent-rgb), 0.02);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
   min-height: 0; /* avoid flex/min-height collapse issues */
 }
@@ -310,7 +322,7 @@ footer {
   color: inherit;
 }
 .sponsor:focus-visible {
-  outline: 3px solid rgba(13, 110, 253, 0.12);
+  outline: 3px solid rgba(var(--accent-rgb), 0.12);
   outline-offset: 3px;
   border-radius: 8px;
 }
@@ -337,21 +349,36 @@ footer {
   margin: 0.75rem auto 0;
   padding: 1rem;
   background: var(--card-bg);
-  border: 1px solid rgba(13, 110, 253, 0.06);
+  border: 1px solid rgba(var(--accent-rgb), 0.06);
   border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
   box-shadow: 0 8px 24px rgba(11, 18, 32, 0.04);
 }
 .faq-box h2 {
   margin: 0 0 0.75rem;
   font-size: 1.125rem;
-  color: var(--text);
+  color: var(--accent-strong);
   text-align: left;
 }
 .faq details {
   padding: 0.5rem 0.5rem;
   border-radius: 8px;
-  background: rgba(13, 110, 253, 0.02);
+  background: rgba(var(--accent-rgb), 0.02);
   margin-bottom: 0.5rem;
+}
+
+/* Accent top bar for boxes to visually apply the palette */
+.info-box::before,
+.sponsors-box::before,
+.faq-box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent-mid), var(--accent));
 }
 .faq summary {
   font-weight: 700;
@@ -380,7 +407,7 @@ footer {
   line-height: 1.45;
 }
 .faq summary:focus-visible {
-  outline: 3px solid rgba(13, 110, 253, 0.12);
+  outline: 3px solid rgba(var(--accent-rgb), 0.12);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -394,15 +421,15 @@ footer {
 }
 .faq-btn {
   background: transparent;
-  border: 1px solid rgba(13, 110, 253, 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.08);
   padding: 0.35rem 0.6rem;
   border-radius: 8px;
-  color: var(--accent);
+  color: var(--accent-strong);
   font-weight: 600;
   cursor: pointer;
 }
 .faq-btn:hover:not(:disabled) {
-  background: rgba(13, 110, 253, 0.06);
+  background: rgba(var(--accent-rgb), 0.06);
 }
 .faq-btn:disabled {
   opacity: 0.45;
@@ -427,5 +454,13 @@ footer {
   .faq details {
     margin: 0; /* spacing handled by gap */
     width: 100%;
+  }
+}
+
+/* On small screens give the summary some right padding so its text doesn't
+   run into the expand/collapse icon */
+@media (max-width: 899px) {
+  .faq summary {
+    padding-right: 2rem;
   }
 }
