@@ -114,6 +114,7 @@ main {
   }
   .info-box {
     padding: 1.25rem 1.5rem;
+    /* keep a flexible layout for medium screens; we'll switch to a grid on larger desktops */
     display: flex;
     gap: 1.25rem;
     align-items: flex-start;
@@ -130,6 +131,33 @@ main {
   }
   .info-meta .btn {
     display: block;
+  }
+}
+
+/* Desktop layout: title sits above the info text inside the same white box,
+   with description and meta forming two columns underneath. */
+@media (min-width: 900px) {
+  .info-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "title title" "desc meta";
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .info-box > h1 {
+    grid-area: title;
+    margin: 0 0 0.75rem;
+    text-align: center; /* center title on desktop */
+    justify-self: center;
+    font-size: 2.6rem;
+  }
+
+  .info-desc {
+    grid-area: desc;
+  }
+  .info-meta {
+    grid-area: meta;
   }
 }
 
@@ -217,6 +245,8 @@ footer {
   display: grid;
   grid-template-columns: 1fr; /* default: single column on small screens */
   gap: 0.75rem;
+  grid-auto-rows: auto; /* ensure rows grow to fit their content */
+  align-items: start;
 }
 
 /* Explicit column layout at breakpoints: 2 columns on tablet, 4 on large screens */
@@ -241,12 +271,13 @@ footer {
 .sponsor {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start; /* allow content to wrap and grow vertically */
   gap: 1rem;
   padding: 0.6rem;
   border-radius: 8px;
   background: rgba(13, 110, 253, 0.02);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
+  min-height: 0; /* avoid flex/min-height collapse issues */
 }
 .sponsor:hover {
   transform: translateY(-4px);
@@ -269,6 +300,19 @@ footer {
   font-weight: 600;
   color: var(--muted);
   text-align: left;
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Make the entire sponsor tile clickable and accessible when it is an anchor */
+.sponsor[role="listitem"] {
+  text-decoration: none;
+  color: inherit;
+}
+.sponsor:focus-visible {
+  outline: 3px solid rgba(13, 110, 253, 0.12);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
 @media (max-width: 520px) {
