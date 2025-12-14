@@ -137,15 +137,44 @@ main {
 nav {
   display: flex;
   gap: 1rem;
+  align-items: center;
   justify-content: center;
-  margin-top: 1.25rem;
+  max-width: 920px; /* match .info-box width */
+  margin: 1.25rem auto 0; /* center container */
+  padding: 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius);
+  border: 1px solid rgba(13, 110, 253, 0.06);
+  box-shadow: 0 8px 24px rgba(11, 18, 32, 0.04);
 }
+
 nav a {
   color: var(--accent);
   text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  transition: background-color .12s ease, transform .08s ease;
 }
-nav a:hover {
-  text-decoration: underline;
+
+nav a:hover,
+nav a:focus {
+  background: rgba(13, 110, 253, 0.06);
+  text-decoration: none;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+nav a:focus-visible {
+  outline: 3px solid rgba(13, 110, 253, 0.12);
+  outline-offset: 3px;
+}
+
+@media (max-width: 420px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
 }
 
 footer {
