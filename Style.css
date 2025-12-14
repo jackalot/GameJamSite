@@ -221,13 +221,22 @@ footer {
 
 /* Explicit column layout at breakpoints: 2 columns on tablet, 4 on large screens */
 @media (min-width: 600px) {
-  .sponsors-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 @media (min-width: 900px) {
   /* four columns once the layout is wide enough */
-  .sponsors-grid { grid-template-columns: repeat(4, 1fr); }
-  .sponsor-logo { flex: 0 0 120px; }
-  .sponsor-name { text-align: left; }
+  .sponsors-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .sponsor-logo {
+    flex: 0 0 120px;
+  }
+  .sponsor-name {
+    text-align: left;
+  }
 }
 .sponsor {
   display: flex;
