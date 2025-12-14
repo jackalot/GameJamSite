@@ -408,3 +408,24 @@ footer {
   opacity: 0.45;
   cursor: not-allowed;
 }
+
+/* Desktop: show FAQ entries in two columns */
+@media (min-width: 900px) {
+  .faq-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  /* Make heading and controls span both columns */
+  .faq-box h2,
+  .faq-controls {
+    grid-column: 1 / -1;
+  }
+
+  .faq details {
+    margin: 0; /* spacing handled by gap */
+    width: 100%;
+  }
+}
